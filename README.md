@@ -37,7 +37,7 @@ F1 (test) : 0.9461
 weighted avg       0.99      0.99      0.99       993
 
 # Report 
-## Objective
+### Objective
 Build a model that, given the last W=30 time steps of three system metrics (CPU, memory, latency), predicts whether an incident will occur within the next H=10 time steps.
 
 ### Data
@@ -47,18 +47,18 @@ Sharp CPU and latency spike during the incident.
 
 Data was split chronologically into training (60%), validation (20%) and test (20%) sets — without random shuffling, which prevents future data from leaking into training.
 
--Role of Each Metric
+### Role of Each Metric
 Memory — the leading signal. It rises gradually 10 steps before the incident, simulating e.g. a memory leak. This is the most important feature according to the model (memory_slope ranked first) — the model learned that a rising memory trend is an early warning sign.
 CPU — the concurrent signal. Spikes sharply once the incident is already underway. High CPU alone is not alarming, but combined with rising memory it becomes a strong indicator.
 Latency — the most dramatic signal. Jumps by 200ms during the incident (largest amplitude of all metrics). It is the most noticeable symptom for end users — server response time degrades from 100ms to 300ms.
 
--Plot Analysis
+### Plot Analysis
 PR Curve — both curves maintain high precision up to Recall ~0.85, then drop sharply. This means the models are confident in their predictions for most incidents, and only the hardest cause difficulty.
 ROC Curve – Both curves rise to values ​​close to 1 (AUC ~0.97–0.98), confirming that both models reliably distinguish normal operation from incidents.
 Confusion Matrix — both models made 8 FN errors - missed incidents. Random Forest additionally produced 8 FP errors - false alarms, while Gradient Boosting produced only 1.
 F1 Curve — Random Forest shows a wide plateau, meaning it is robust to threshold selection. Such a broad and high peak of the curve indicates that the model is very confident in its predictions.
 Score Distribution — both models clearly separate the two classes, indicating high prediction confidence. Gradient Boosting separates the classes almost perfectly.
 
--Conclusions
+## Conclusions
 Gradient Boosting is the better choice for this task — higher F1, near-zero false alarms (FP=1) and superior PR-AUC.
 The main limitation is the synthetic nature of the data — real system metrics are noisier and incidents are more irregular.
