@@ -8,33 +8,39 @@ The applicant may use any suitable public dataset or generate a synthetic time s
 The solution should include a clear description of the modeling choices, the evaluation setup (including alert thresholds and metrics), and an analysis of the results. During follow-up, the applicant should be able to explain the design decisions, discuss limitations, and outline how the approach could be adapted to a real alerting system.
 
 # Results 
-Random Forest:
-Alert threshold (val F1-max) : 0.184
-ROC-AUC   : 0.9735
-PR-AUC    : 0.9334
-F1 (test) : 0.9080
-              precision    recall  f1-score   support
+### Random Forest
+| Metric | Value |
+|:-------|------:|
+| Alert Threshold (val F1-max) | 0.184 |
+| ROC-AUC | 0.9735 |
+| PR-AUC | 0.9334 |
+| F1 (test) | 0.9080 |
 
-      Normal       0.99      0.99      0.99       906
-    Incident       0.91      0.91      0.91        87
+| Class | Precision | Recall | F1-Score | Support |
+|:------|----------:|-------:|---------:|--------:|
+| Normal | 0.99 | 0.99 | 0.99 | 906 |
+| Incident | 0.91 | 0.91 | 0.91 | 87 |
+| accuracy | | | 0.98 | 993 |
+| macro avg | 0.95 | 0.95 | 0.95 | 993 |
+| weighted avg | 0.98 | 0.98 | 0.98 | 993 |
 
-    accuracy                           0.98       993
-   macro avg       0.95      0.95      0.95       993
-weighted avg       0.98      0.98      0.98       993
+---
 
-Gradient Boosting:
-Alert threshold (val F1-max) : 0.591
-ROC-AUC   : 0.9832
-PR-AUC    : 0.9454
-F1 (test) : 0.9461
-              precision    recall  f1-score   support
+### Gradient Boosting
+| Metric | Value |
+|:-------|------:|
+| Alert Threshold (val F1-max) | 0.591 |
+| ROC-AUC | 0.9832 |
+| PR-AUC | 0.9454 |
+| F1 (test) | 0.9461 |
 
-      Normal       0.99      1.00      1.00       906
-    Incident       0.99      0.91      0.95        87
-
-    accuracy                           0.99       993
-   macro avg       0.99      0.95      0.97       993
-weighted avg       0.99      0.99      0.99       993
+| Class | Precision | Recall | F1-Score | Support |
+|:------|----------:|-------:|---------:|--------:|
+| Normal | 0.99 | 1.00 | 1.00 | 906 |
+| Incident | 0.99 | 0.91 | 0.95 | 87 |
+| accuracy | | | 0.99 | 993 |
+| macro avg | 0.99 | 0.95 | 0.97 | 993 |
+| weighted avg | 0.99 | 0.99 | 0.99 | 993 |
 
 # Report 
 ### Objective
