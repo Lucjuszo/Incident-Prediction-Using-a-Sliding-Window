@@ -40,7 +40,7 @@ weighted avg       0.99      0.99      0.99       993
 ## Objective
 Build a model that, given the last W=30 time steps of three system metrics (CPU, memory, latency), predicts whether an incident will occur within the next H=10 time steps.
 
--Data
+###Data
 A synthetic time series of 5000 time steps was generated with 12 injected incidents (incident ratio = 4.8%). Each incident lasts 20 steps and follows a realistic pattern:
 Gradual memory rise 10 steps before the incident,
 Sharp CPU and latency spike during the incident.
