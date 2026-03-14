@@ -24,8 +24,6 @@ The solution should include a clear description of the modeling choices, the eva
 | macro avg | 0.95 | 0.95 | 0.95 | 993 |
 | weighted avg | 0.98 | 0.98 | 0.98 | 993 |
 
----
-
 ### Gradient Boosting
 | Metric | Value |
 |:-------|------:|
